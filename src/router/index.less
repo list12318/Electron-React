@@ -1,0 +1,44 @@
+.electron-root {
+  /* 使用 flex 来实现 */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.electron-titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* 避免被收缩 */
+  flex-shrink: 0;
+  /* 高度与 main.js 中 titleBarOverlay.height 一致  */
+  height: 35px;
+  width: 100%;
+  /* 标题栏始终在最顶层（避免后续被 Modal 之类的覆盖） */
+  z-index: 9999;
+  background-color: #23272e;
+  color: #ffffff;
+  padding-left: 12px;
+  font-size: 14px;
+  -webkit-app-region: drag;
+
+  .tabbar-btn {
+    -webkit-app-region: no-drag;
+    display: flex;
+    .titlebar-button {
+      width: 40px;
+      height: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        background-color: #393d43;
+      }
+    }
+  }
+}
+.electron-content {
+  width: 100%;
+  /* 内容区需要设置可滚动 */
+  overflow: hidden;
+  position: relative;
+}

@@ -1,0 +1,24 @@
+{
+  "name": "box-web-electron",
+  "version": "1.0.0",
+  "description": "边缘计算客户端",
+  "main": "main.js",
+  "homepage": ".",
+  "scripts": {
+    "start-electron": "cross-env NODE_ENV=development electron .",
+    "start-electron-prod": "electron .",
+    "build-electron-dist": "cd .. && npm run build && cd ./app && electron-builder --config ./build-config.js",
+    "build-electron": "electron-builder --config ./build-config.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^27.0.2",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "electron-screenshots": "^0.5.26",
+    "lodash": "^4.17.21",
+    "path": "^0.12.7"
+  }
+}
