@@ -13,7 +13,7 @@ module.exports = {
     inline: false,
     proxy: {
       "/box": {
-        target: "http://10.10.2.157:80",
+        target: "http://10.10.2.162:80",
       },
       // "/api": {
       //   target: "http://10.10.200.181:38089",

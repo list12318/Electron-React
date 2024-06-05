@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 // const WebpackOpenDirectoryPlugin = require("./WebpackOpenDirectoryPlugin"); //打包后根据路径使用node自动打开文件夹
+// const { codeInspectorPlugin } = require("code-inspector-plugin"); //开发环境页面按住shift+ctrl 自动打开对应源码插件
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -120,6 +121,9 @@ module.exports = {
       threshold: 10240,
       minRatio: 0,
     }),
+    // codeInspectorPlugin({
+    //   bundler: "webpack",
+    // }),
 
     // 使用插件，并传入目标目录作为参数
     // process.env.NODE_ENV === "production" &&

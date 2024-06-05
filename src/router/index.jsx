@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useRoutes, Navigate, useNavigate } from "react-router-dom";
 
 import { MinusOutlined, BorderOutlined, CloseOutlined, RollbackOutlined } from "@ant-design/icons";
-import { organizeMenuList } from "@/util/route";
+
 import Login from "@/pages/login";
 import ScreenShots from "@/pages/screenShots";
+import FourNineRender from "@/pages/fournineRender";
 import Config from "@/pages/config";
 import Search from "@/pages/search";
 import Result from "@/pages/result";
 
-import { routerData } from "./route";
 import useStore from "@/store";
 import { toJS } from "mobx";
 import { observer } from "mobx-react";
@@ -21,8 +21,6 @@ const RouterElement = () => {
   const { userStore, titleStore } = useStore(); //mobx
   const userInfo = toJS(userStore.userInfo);
   const titleShow = toJS(titleStore.show); //客户端标题栏是否显示
-
-  const menuList = routerData;
 
   const [routerList, setRouterList] = useState([
     {
@@ -38,6 +36,10 @@ const RouterElement = () => {
       element: <ScreenShots />,
     },
     {
+      path: "/fournineRender",
+      element: <FourNineRender />,
+    },
+    {
       path: "/config",
       element: <Config />,
     },
@@ -51,17 +53,6 @@ const RouterElement = () => {
     },
   ]);
 
-  useEffect(() => {
-    console.log("window----", window);
-    if (menuList.length) {
-      let newRouterList = organizeMenuList(menuList);
-
-      setRouterList((data) => {
-        return [...data, ...newRouterList];
-      });
-    }
-  }, [menuList]);
-
   const backTo = () => {
     navigate(-1);
   };
@@ -69,17 +60,17 @@ const RouterElement = () => {
     window.electronAPI.setWindowMin(); //修改窗口最小化
   };
   const maximize = () => {
-    window.electronAPI.setWindowMax(); //修改窗口最小化
+    window.electronAPI.setWindowMax(); //修改窗口最大化
   };
   const closeWindow = () => {
-    window.electronAPI.setWindowClose(); //修改窗口最小化
+    window.electronAPI.appQuit(); //修改窗口退出
   };
 
   return (
     <div className="electron-root">
       {titleShow && (
         <div className="electron-titlebar">
-          <p>边缘计算客户端</p>
+          <p>千眼系统</p>
           <div className="tabbar-btn">
             <div className="titlebar-button" title="返回上一级" onClick={backTo}>
               <RollbackOutlined />

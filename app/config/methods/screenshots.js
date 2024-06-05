@@ -19,9 +19,9 @@ const initScreenShots = (mainWindow) => {
   });
 
   // 快捷键截图
-  globalShortcut.register("ctrl+alt+q", () => {
-    screenshots.startCapture();
-  });
+  // globalShortcut.register("ctrl+alt+q", () => {
+  //   screenshots.startCapture();
+  // });
 
   // 客户端触发截图事件
   ipcMain.on("take-screenshot", (event, args) => {
@@ -31,18 +31,16 @@ const initScreenShots = (mainWindow) => {
   // 点击确定按钮回调事件
   screenshots.on("ok", (e, buffer, bounds) => {
     // 向React发送截图信息，buffer为图片文件，bounds为信息
-    // event.sender.send('resize-done', 'Window has been resized');
     mainWindow.webContents.send("screenshot-taken", {
       buffer,
       bounds,
     });
-
     mainWindow.show();
   });
 
   // 点击取消按钮回调事件
   screenshots.on("cancel", () => {
-    console.log("cancal");
+    mainWindow.show();
   });
 };
 module.exports = initScreenShots;

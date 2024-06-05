@@ -2,14 +2,7 @@ const { app, Tray, Menu } = require("electron");
 const path = require("path");
 // 创建托盘
 const initTray = async (mainWindow) => {
-  let tray = null;
-  // if (NODE_ENV === "development") {
-  //   tray = new Tray(path.resolve(__dirname, "./libs/icon/logo.png"));
-  // } else {
-  //   tray = new Tray(path.join(path.dirname(app.getPath("exe")), "/resources/libs/icon/logo.png"));
-  // }
-
-  tray = new Tray(path.join(__dirname, "../libs/icon/logo.png"));
+  const tray = new Tray(path.join(__dirname, "../libs/icon/logo.png"));
 
   // 托盘右键菜单
   const contextMenu = Menu.buildFromTemplate([
@@ -38,7 +31,7 @@ const initTray = async (mainWindow) => {
     },
   ]);
 
-  tray.setToolTip("边缘计算客户端");
+  tray.setToolTip("千眼系统");
   tray.setContextMenu(contextMenu);
   // 单击
   tray.on("click", function () {
@@ -48,6 +41,8 @@ const initTray = async (mainWindow) => {
   tray.on("double-click", function () {
     mainWindow.show();
   });
+
+  global.tray = tray; //将托盘实例挂载到全局变量
 };
 
 module.exports = initTray;

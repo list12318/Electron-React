@@ -34,7 +34,7 @@ const Result = () => {
             src={record}
             preview={{
               mask: (
-                <Tooltip title="预览">
+                <Tooltip title="查看大图">
                   <EyeOutlined />
                 </Tooltip>
               ),
@@ -65,6 +65,7 @@ const Result = () => {
     window.electronAPI.setWindowTop(false); //修改窗口层级不置顶
     window.electronAPI.setWindowCenter(); //设置窗口居中
     window.electronAPI.setWindowOpacity({ opacity: 1 }); //修改窗口透明度
+    window.electronAPI.trayFlicker(false); //取消托盘闪烁
 
     titleStore.setShow(true);
   }, []);
@@ -72,8 +73,10 @@ const Result = () => {
   useEffect(() => {
     // 接收来自electron的消息
     window.electronAPI.windowResize((data) => {
-      console.log("窗口大小变了哟");
-      setTableHeight(tableRef.current.offsetHeight - 55);
+      // console.log("窗口大小变了哟");
+      if (tableRef && tableRef.current) {
+        setTableHeight(tableRef.current.offsetHeight - 55);
+      }
     });
 
     return () => {};

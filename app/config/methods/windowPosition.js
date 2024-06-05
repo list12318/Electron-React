@@ -6,21 +6,21 @@ const initSetWindowPosition = (mainWindow) => {
   ipcMain.on("set-window-position", (event, size) => {
     const windowBounds = mainWindow.getBounds();
 
-    // 寻找最接近窗口当前位置的显示器
-    const nearestDisplay = screen.getDisplayNearestPoint({ x: windowBounds.x, y: windowBounds.y });
-    const displayBounds = nearestDisplay.bounds;
+    // 获取主显示器
+    const primaryDisplay = screen.getPrimaryDisplay();
+    const displayBounds = primaryDisplay.bounds;
 
     // 窗口与屏幕顶部距离设为0
     const newY = displayBounds.y;
 
     // 为了水平居中窗口，我们需要计算新的X坐标
-    const newX = displayBounds.x + displayBounds.width / 2 - windowBounds.width / 2;
+    const newX = Math.round(displayBounds.x + displayBounds.width / 2 - windowBounds.width / 2);
 
     mainWindow.setBounds({
       x: newX,
       y: newY,
-      width: windowBounds.width, // 保持当前宽度
-      height: windowBounds.height, // 保持当前高度
+      // width: windowBounds.width, // 保持当前宽度
+      // height: windowBounds.height, // 保持当前高度
     });
   });
 };

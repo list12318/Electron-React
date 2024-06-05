@@ -34,6 +34,7 @@ const Config = () => {
   const [isAnalysis, setIsAnalysis] = useState(false);
 
   useEffect(() => {
+    window.electronAPI.setFullScreen(false); //取消全屏
     window.electronAPI.setWindowSize({ width: 880, height: 550 }); //修改窗口大小
     window.electronAPI.setWindowTop(false); //修改窗口层级不置顶
     window.electronAPI.setWindowCenter(); //设置窗口居中
@@ -57,7 +58,7 @@ const Config = () => {
   const beforeUpload = (file) => {
     const isJpgOrPng = file.type === "image/jpg" || file.type === "image/png" || file.type === "image/jpeg";
     if (!isJpgOrPng) {
-      message.error("仅支持JQEG/PNG/JPG格式图片!");
+      message.error("仅支持JPEG/PNG/JPG格式图片!");
     }
     const isLt2M = file.size / 1024 / 1024 < 2;
     if (!isLt2M) {

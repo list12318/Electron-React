@@ -1,13 +1,13 @@
-const enName = "Box";
+const enName = "thousand";
 
 const config = {
-  appId: "box-web-electron", //应用程序唯一标识符
+  appId: "thousand-web-electron", //应用程序唯一标识符
   productName: enName, //应用程序名字
   directories: {
     output: "appDist", //输出目录
   },
   // files: ["dist/**/*", "preload.js", "main.js", "config/**/*", "libs/**/*"], //哪些需要打包
-  files: ["**/*", "!**/node_modules/*", "!package-lock.json", "!appDist/**/*", "!build-config.js", "!package.json"], //除了!文件之外全部需要打包
+  files: ["**/*", "!**/node_modules/*", "!package-lock.json", "!appDist/**/*", "!build-config.js"], //除了!文件之外全部需要打包
   // libs 静态资源目录原封不动输出至appDist/resources
   // extraResources: [
   //   {

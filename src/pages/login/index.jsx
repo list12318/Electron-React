@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Form, Input, Button, message } from "antd";
 import "./index.less";
-import { Form, Input, Button } from "antd";
-import { elMessage } from "@/util/message";
+import loginLogo from "@/assets/img/login/login_logo.png";
+import loginUser from "@/assets/img/login/login_user.png";
+import loginPassword from "@/assets/img/login/login_password.png";
 import { setSession } from "@/util";
 import { login } from "./service";
 
@@ -14,7 +16,7 @@ const Login = () => {
 
   // 进入当前页默认设置窗口大小和居中
   useEffect(() => {
-    window.electronAPI.setWindowSize({ width: 500, height: 120 }); //修改窗口大小
+    // window.electronAPI.setWindowSize({ width: 500, height: 120 }); //修改窗口大小
     window.electronAPI.setWindowCenter(); //修改窗口居中
     window.electronAPI.setWindowTop(false); //修改窗口层级不置顶
     window.electronAPI.setWindowOpacity({ opacity: 1 }); //修改窗口透明度
@@ -50,22 +52,26 @@ const Login = () => {
   return (
     <div className="login">
       <div className="login_container">
+        <img className="login_logo" src={loginLogo} alt="" />
+        <div className="title"> 欢迎使用千眼系统</div>
         <div className="login_box">
-          <Form form={form} autoComplete="off">
-            <Input.Group compact>
-              <Form.Item
-                name="ip"
-                style={{
-                  width: "calc(100% - 90px)",
-                }}
-                rules={[{ required: true, message: "请输入连接IP" }]}
-              >
-                <Input addonBefore="http://" addonAfter="80" placeholder="IP地址" />
-              </Form.Item>
-              <Button type="primary" loading={loading} onClick={submit}>
-                连接
+          <Form form={form} onFinish={submit} autoComplete="off">
+            <Form.Item name="userName" rules={[{ required: true, message: "请输入用户名" }]}>
+              <Input placeholder="用户名" prefix={<img src={loginUser} />} />
+            </Form.Item>
+            <Form.Item name="password" rules={[{ required: true, message: "请输入密码" }]}>
+              <Input.Password placeholder="密码" prefix={<img src={loginPassword} />} />
+            </Form.Item>
+
+            <Form.Item name="ip" rules={[{ required: true, message: "请输入连接IP" }]}>
+              <Input addonBefore="http://" addonAfter="80" placeholder="IP地址" />
+            </Form.Item>
+
+            <Form.Item className="submit">
+              <Button type="primary" htmlType="submit" loading={loading}>
+                登录
               </Button>
-            </Input.Group>
+            </Form.Item>
           </Form>
         </div>
       </div>

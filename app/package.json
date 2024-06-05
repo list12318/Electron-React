@@ -1,7 +1,7 @@
 {
-  "name": "box-web-electron",
+  "name": "thousand-web-electron",
   "version": "1.0.0",
-  "description": "边缘计算客户端",
+  "description": "千眼系统",
   "main": "main.js",
   "homepage": ".",
   "scripts": {
