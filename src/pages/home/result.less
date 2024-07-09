@@ -1,0 +1,106 @@
+.result {
+  .ant-modal-body {
+    padding: 0;
+    .search {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ebeef5;
+      padding: 0 10px;
+      .left {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        .search-item {
+          display: flex;
+          align-items: center;
+          margin-right: 10px;
+          .title {
+            flex-shrink: 0;
+            width: 70px;
+          }
+          .ant-input {
+            width: 150px;
+          }
+          .ant-picker {
+            width: 330px;
+          }
+        }
+      }
+      .right {
+        width: 150px;
+        .ant-btn {
+          margin-left: 10px;
+        }
+      }
+    }
+    .list {
+      width: 100%;
+      height: calc(100% - 90px);
+      margin-top: 10px;
+      display: flex;
+      // justify-content: center;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      overflow: hidden auto;
+      padding: 6px 6px 14px 6px;
+      li {
+        width: calc(16.67777777% - 13px);
+        height: 170px;
+        border-radius: 5px;
+        margin: 6px;
+        background: #ffffff;
+        position: relative;
+        cursor: pointer;
+        .ant-image {
+          width: 100%;
+          height: 100%;
+          .img-preview {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+          }
+        }
+        // .img-preview {
+        //   width: 100%;
+        //   height: 100%;
+        //   border-radius: 5px;
+        // }
+        p {
+          width: 100%;
+          height: 30px;
+          line-height: 30px;
+          font-size: 14px;
+          padding-left: 4px;
+          border-radius: 0 0 5px 5px;
+          color: #ebeef5;
+          background-color: rgba(0, 0, 0, 0.6);
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          z-index: 10;
+          span {
+            margin-right: 10px;
+          }
+        }
+      }
+      .no-data {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 60px;
+        }
+        p {
+          font-size: 18px;
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+}

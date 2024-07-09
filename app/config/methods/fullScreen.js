@@ -6,9 +6,9 @@ const fullScreen = (mainWindow) => {
     const { width: fullWidth, height: fullHeight } = getSize();
 
     if (data) {
-      mainWindow.setResizable(true); //临时允许调整大小
+      // mainWindow.setResizable(true); //临时允许调整大小
       mainWindow.setSize(fullWidth, fullHeight);
-      mainWindow.setResizable(false);
+      // mainWindow.setResizable(false);
       mainWindow.setKiosk(true);
     } else {
       mainWindow.setKiosk(false);

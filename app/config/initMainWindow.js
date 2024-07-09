@@ -5,11 +5,13 @@ const { debounce } = require("lodash");
 // 创建主窗口
 const initWindow = async () => {
   const mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 600,
+    width: 1300,
+    height: 700,
+    minWidth: 1000, //拖拽最小宽度
+    minHeight: 600,
 
     frame: false, //无边框窗口
-    resizable: false, //禁止拖拽大小
+    // resizable: false, //禁止拖拽大小
     titleBarStyle: "hidden", //隐藏原生标题栏，自定义标题栏实现在src/router/index.jsx
 
     alwaysOnTop: false, // 窗口永远在其他应用程序层级之上
@@ -24,6 +26,8 @@ const initWindow = async () => {
       preload: path.join(__dirname, "../preload.js"),
     },
   });
+
+  // mainWindow.maximize(); //默认最大化
 
   if (NODE_ENV === "development") {
     mainWindow.loadURL("http://localhost:3000");

@@ -12,6 +12,7 @@ const initWindowMessage = require("./methods/message");
 const setWindowTop = require("./methods/windowTop");
 const getScreenShots = require("./methods/getScreenshot");
 const fullScreen = require("./methods/fullScreen");
+const selectFile = require("./methods/selectFile");
 
 // 截图
 const initMethods = (mainWindow) => {
@@ -31,6 +32,8 @@ const initMethods = (mainWindow) => {
   fullScreen(mainWindow); //窗口是否全屏
 
   getScreenShots(mainWindow); //获取屏幕快照
+
+  selectFile(mainWindow); //选择文件
 };
 
 module.exports = initMethods;

@@ -31,7 +31,7 @@ const initTray = async (mainWindow) => {
     },
   ]);
 
-  tray.setToolTip("千眼系统");
+  tray.setToolTip("千眼视频智能分析系统");
   tray.setContextMenu(contextMenu);
   // 单击
   tray.on("click", function () {

@@ -31,4 +31,8 @@ contextBridge.exposeInMainWorld("electronAPI", {
   callbackShots: (callback) => ipcRenderer.on("callback-shots", (event, data) => callback(data)), //屏幕快照获取后返回给渲染端
 
   setFullScreen: (data) => ipcRenderer.send("set-fullscreen", data), //设置窗口是否全屏
+
+  showWindowMessage: (data) => ipcRenderer.send("show-window-message", data), // windows消息提示
+
+  selectFile: (data) => ipcRenderer.invoke("select-file", data), // 选择文件或者文件夹
 });

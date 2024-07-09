@@ -5,8 +5,7 @@ const initWindowMessage = (mainWindow) => {
   ipcMain.on("show-window-message", (event, data) => {
     const { title, subTitle } = data;
 
-    new Notification({
-      title,
+    new Notification(title, {
       body: subTitle,
     }).show();
   });

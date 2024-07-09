@@ -1,7 +1,7 @@
 {
-  "name": "thousand-web",
+  "name": "analysis-web",
   "version": "1.0.0",
-  "description": "千眼系统前端",
+  "description": "千眼视频智能分析系统渲染端",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development node tool/dev-server.js",
@@ -26,6 +26,7 @@
     "webpack-dev-server": "^3.1.1"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
     "antd": "4.20.0",
     "axios": "^0.27.2",
     "compression-webpack-plugin": "^2.0.0",

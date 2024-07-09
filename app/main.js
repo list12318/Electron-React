@@ -1,10 +1,8 @@
 const { app, globalShortcut } = require("electron");
-const path = require("path");
-
 // 禁用GPU加速
 app.disableHardwareAcceleration();
 
-const initLoadingWindow = require("./config/loading");
+// const initLoadingWindow = require("./config/loading");
 const initMainWindow = require("./config/initMainWindow"); //初始化主窗口
 const initTray = require("./config/initTray"); //初始化托盘
 const initControl = require("./config/initControl"); //初始化基础控件(如截图控件)
