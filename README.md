@@ -21,27 +21,40 @@ git clone https://github.com/list12318/Electron-React.git
 2. Install packages
 
 ```sh
-1、 cd Electron-React && npm install
-2、 cd app && npm install
+cd Electron-React
+npm install
+
+cd app
+npm install
 ```
 
 3. Run using command:
 
-```
-1、cd Electron-React && npm start
-2、cd app && npm run start-electron
+```sh
+cd Electron-React
+npm start
+
+cd app
+npm run start-electron
 ```
 
 ## Build
 
+```sh
+cd Electron-React
+npm run build
+```
+
 1. Windows
 
 ```sh
-cd app && npm run build:windows
+cd app
+npm run build:windows
 ```
 
-1. Linux
+2. Linux
 
 ```sh
-cd app && npm run build:linux
+cd app
+npm run build:linux
 ```
